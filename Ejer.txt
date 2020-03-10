@@ -1,0 +1,139 @@
+using System;
+//using System.Data.SqlClient;
+
+namespace H1projekt
+{
+    public class Sommerhusejere
+    {
+        public void husejere()
+        {
+            #region
+            string number;
+            string esc = "";
+            string Fornavn = "",Efternavn = "",Email = "",Tlf = "",Adresse = "",Postnr = "", Kontraktperiode = "";
+
+            #endregion
+
+            //SqlConnection Con;
+
+            //Con = new SqlConnection("Sql data connection string her");
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine(" ||Sommerhusejere administration||\n \n 1 - Oprette en ny sommerhusejere.\n ---------------------------------\n 2 - slette en sommerhusejere. \n ----------------------------- \n 3 - rette en sommerhusejere. \n -----------------------------");
+
+
+                var casenumber = Console.ReadKey();
+
+                if (casenumber.Key == ConsoleKey.Escape)
+                {
+
+                    Environment.Exit(0);
+
+                }
+                
+                
+                
+
+                
+                
+                number = (casenumber.KeyChar.ToString());
+
+                
+
+
+                
+
+
+
+                switch (number)
+                {
+                    case "1":
+
+                        do
+                        {
+                            Console.Clear();
+                            Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n ESC for gå tilbage eller N for oprette en ny ejer.");
+                            var button = Console.ReadKey();
+
+                            if (button.Key == ConsoleKey.Escape)
+                            {
+
+                                break;
+
+                            }
+
+                            if (button.Key == ConsoleKey.N)
+                            {
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Fornavn af ny Ejer: ");
+
+
+                                Fornavn = Console.ReadLine();
+
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Efternavn af ny Ejer: ");
+
+                                Efternavn = Console.ReadLine();
+
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Adresse af ny Ejer: ");
+
+                                Adresse = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Postnr af ny Ejer: ");
+
+                                Postnr = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Tlf af ny Ejer: ");
+
+                                Tlf = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Email af ny Ejer: ");
+
+                                Email = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Kontrakt periode af ny Ejer: ");
+                                Kontraktperiode = Console.ReadLine();
+                                Console.Clear();
+
+
+                                //Sql Information commands -----------------------------------------------
+                                //Con.Open();
+
+                                //SqlCommand cmd = new SqlCommand("insert into Ejer(Fornavn,Efternavn,Adresse,Postnr,Tlf,Email,[Kontrakt-periode])values('" +Fornavn+ "','" +Efternavn+ "','" +Adresse+ "','" +Postnr+ "','" +Tlf+ "','" +Email+ "','" +Kontraktperiode+"')", Con);
+
+                                //Con.Close();
+
+                                //-------------------------------------------------------------------------
+
+                            }
+
+                        } while (true);
+
+                        break;
+
+                    case "2":
+
+                        break;
+                    case "3":
+
+                        break;
+
+                    default:
+                      
+                        break;
+                }
+            } while (true);
+            
+
+
+        }
+    }
+}
