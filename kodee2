@@ -1,0 +1,29 @@
+if (master.Contains(id) == true)
+                                {
+                                    List<string> names = new List<string>();
+                                    names.Add("ID: ");
+                                    names.Add("Fornavn: ");
+                                    names.Add("Efternavn: ");
+                                    names.Add("Adresse: ");
+                                    names.Add("Postnr: ");
+                                    names.Add("Tlf: ");
+                                    names.Add("Email: ");
+                                    names.Add("Kontrakt periode: ");
+
+
+
+
+                                    int i = 0;
+                                    List<string> range = master.GetRange(0, 8);
+
+
+
+                                    foreach (var item in range)
+                                    {
+                                        
+
+                                        Console.WriteLine(names[i] +item);
+                                        i++;
+                                    }
+                                    Console.ReadKey();
+                                }
