@@ -7,10 +7,11 @@ namespace H1projekt
     {
         public void husejere()
         {
-            #region
+            #region variable
             string number;
             string esc = "";
             string Fornavn = "",Efternavn = "",Email = "",Tlf = "",Adresse = "",Postnr = "", Kontraktperiode = "";
+            string id = "";
 
             #endregion
 
@@ -66,6 +67,7 @@ namespace H1projekt
 
                             if (button.Key == ConsoleKey.N)
                             {
+                                Console.Clear();
                                 Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Fornavn af ny Ejer: ");
 
 
@@ -109,9 +111,12 @@ namespace H1projekt
 
                                 //SqlCommand cmd = new SqlCommand("insert into Ejer(Fornavn,Efternavn,Adresse,Postnr,Tlf,Email,[Kontrakt-periode])values('" +Fornavn+ "','" +Efternavn+ "','" +Adresse+ "','" +Postnr+ "','" +Tlf+ "','" +Email+ "','" +Kontraktperiode+"')", Con);
 
+                                //cmd.ExecuteNonQuery();
+
                                 //Con.Close();
 
                                 //-------------------------------------------------------------------------
+
 
                             }
 
@@ -120,12 +125,104 @@ namespace H1projekt
                         break;
 
                     case "2":
+                        do { 
+                        
+                            Console.Clear();
+                            Console.WriteLine("||Sommerhusejere administration: slette sommerhusejere|| \n \n ESC for gå tilbage eller S for Slet en ejer.");
+                            var button2 = Console.ReadKey();
+
+                            if (button2.Key == ConsoleKey.Escape)
+                            {
+                                break;
+                            }
+
+                           
+                            if (button2.Key == ConsoleKey.S)
+                            {
+                                Console.WriteLine("||Sommerhusejere administration: slette sommerhusejere|| \n \n Skriv ID af ajeren.");
+                                id = Console.ReadLine();
+                                Console.Clear();
+
+                                //Con.Open();
+
+                                //SqlCommand cmd = new SqlCommand("DELETE FROM Ejer WHERE ID='" + id + "'", Con);
+
+                                //cmd.ExecuteNonQuery();
+
+                                //Con.Close();
+
+                            }
+                        } while (true);
 
                         break;
+
                     case "3":
 
-                        break;
+                        do
+                        {
 
+                            Console.Clear();
+                            Console.WriteLine("||Sommerhusejere administration: Rette sommerhusejere|| \n \n ESC for gå tilbage eller R for ret en ejer.");
+                            var button3 = Console.ReadKey();
+
+                            if (button3.Key == ConsoleKey.Escape)
+                            {
+
+                                break;
+
+                            }
+
+                            if (button3.Key == ConsoleKey.R)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("||Sommerhusejere administration: Rette sommerhusejere|| \n \n Skriv ID af ejeren du ville rette.");
+                                id = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Fornavn af ny Ejer: ");
+                                Fornavn = Console.ReadLine();
+
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Efternavn af ny Ejer: ");
+
+                                Efternavn = Console.ReadLine();
+
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Adresse af ny Ejer: ");
+
+                                Adresse = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Postnr af ny Ejer: ");
+
+                                Postnr = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Tlf af ny Ejer: ");
+
+                                Tlf = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Email af ny Ejer: ");
+
+                                Email = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Kontrakt periode af ny Ejer: ");
+                                Kontraktperiode = Console.ReadLine();
+                                Console.Clear();
+
+
+                                //Con.open();
+                                //SqlCommand adp = new SqlCommand("UPDATE Ejer SET Fornavn='" + Fornavn + "', Efternavn='" + Efternavn + "', Adresse='" + Adresse + "', Postnr='" + Postnr + "', Tlf='" + Tlf + "', Email='" + Email + "', [Kontrakt-periode]='" + Kontraktperiode + "', where EjerId=" + id + "", Con);
+                                //adp.ExecuteNonQuery();
+                                //Con.close();
+                            }
+
+                        } while (true);
+                            break;
                     default:
                       
                         break;
