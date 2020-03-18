@@ -1,0 +1,270 @@
+using System;
+//using System.Data.SqlClient;
+
+namespace H1projekt
+{
+    public class Sommerhusejere
+    {
+        public void husejere()
+        {
+            #region variable
+            string number;
+            string esc = "";
+            string Fornavn = "",Efternavn = "",Email = "",Tlf = "",Adresse = "",Postnr = "", Kontraktperiode = "";
+            string id = "";
+
+            #endregion
+
+            //SqlConnection Con;
+
+            //Con = new SqlConnection("Sql data connection string her");
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine(" ||Sommerhusejere administration||\n \n 1 - Oprette en ny sommerhusejere.\n ---------------------------------\n 2 - slette en sommerhusejere. \n ----------------------------- \n 3 - rette en sommerhusejere. \n ----------------------------- \n 4 - Se alle ejere oplysninger \n -----------------------------");
+
+
+                var casenumber = Console.ReadKey();
+
+                if (casenumber.Key == ConsoleKey.Escape)
+                {
+
+                    Environment.Exit(0);
+
+                }
+                
+                
+                
+
+                
+                
+                number = (casenumber.KeyChar.ToString());
+
+                
+
+
+                
+
+
+
+                switch (number)
+                {
+                    case "1":
+
+                        do
+                        {
+                            Console.Clear();
+                            Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n ESC for gå tilbage eller N for oprette en ny ejer.");
+                            var button = Console.ReadKey();
+
+                            if (button.Key == ConsoleKey.Escape)
+                            {
+
+                                break;
+
+                            }
+
+                            if (button.Key == ConsoleKey.N)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Fornavn af ny Ejer: ");
+
+
+                                Fornavn = Console.ReadLine();
+
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Efternavn af ny Ejer: ");
+
+                                Efternavn = Console.ReadLine();
+
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Adresse af ny Ejer: ");
+
+                                Adresse = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Postnr af ny Ejer: ");
+
+                                Postnr = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Tlf af ny Ejer: ");
+
+                                Tlf = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Email af ny Ejer: ");
+
+                                Email = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Kontrakt periode af ny Ejer: ");
+                                Kontraktperiode = Console.ReadLine();
+                                Console.Clear();
+
+
+                                //Sql Information commands -----------------------------------------------
+                                //Con.Open();
+
+                                //SqlCommand cmd = new SqlCommand("insert into Ejer(Fornavn,Efternavn,Adresse,Postnr,Tlf,Email,[Kontrakt-periode])values('" +Fornavn+ "','" +Efternavn+ "','" +Adresse+ "','" +Postnr+ "','" +Tlf+ "','" +Email+ "','" +Kontraktperiode+"')", Con);
+
+                                //cmd.ExecuteNonQuery();
+
+                                //Con.Close();
+
+                                //-------------------------------------------------------------------------
+                            }
+
+                        } while (true);
+
+                        break;
+
+                    case "2":
+                        do { 
+                        
+                            Console.Clear();
+                            Console.WriteLine("||Sommerhusejere administration: slette sommerhusejere|| \n \n ESC for gå tilbage eller S for Slet en ejer.");
+                            var button2 = Console.ReadKey();
+
+                            if (button2.Key == ConsoleKey.Escape)
+                            {
+                                break;
+                            }
+
+                           
+                            if (button2.Key == ConsoleKey.S)
+                            {
+                                Console.WriteLine("||Sommerhusejere administration: slette sommerhusejere|| \n \n Skriv ID af ajeren.");
+                                id = Console.ReadLine();
+                                Console.Clear();
+
+                                //Con.Open();
+
+                                //SqlCommand cmd = new SqlCommand("DELETE FROM Ejer WHERE ID='" + id + "'", Con);
+
+                                //cmd.ExecuteNonQuery();
+
+                                //Con.Close();
+
+                            }
+                        } while (true);
+
+                        break;
+
+                    case "3":
+
+                        do
+                        {
+
+                            Console.Clear();
+                            Console.WriteLine("||Sommerhusejere administration: Rette sommerhusejere|| \n \n ESC for gå tilbage eller R for ret en ejer.");
+                            var button3 = Console.ReadKey();
+
+                            if (button3.Key == ConsoleKey.Escape)
+                            {
+
+                                break;
+
+                            }
+
+                            if (button3.Key == ConsoleKey.R)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("||Sommerhusejere administration: Rette sommerhusejere|| \n \n Skriv ID af ejeren du ville rette.");
+                                id = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Fornavn af ny Ejer: ");
+                                Fornavn = Console.ReadLine();
+
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Efternavn af ny Ejer: ");
+
+                                Efternavn = Console.ReadLine();
+
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Adresse af ny Ejer: ");
+
+                                Adresse = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Postnr af ny Ejer: ");
+
+                                Postnr = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Tlf af ny Ejer: ");
+
+                                Tlf = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Email af ny Ejer: ");
+
+                                Email = Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("||Sommerhusejere administration: ny sommerhusejere|| \n \n Skriv Kontrakt periode af ny Ejer: ");
+                                Kontraktperiode = Console.ReadLine();
+                                Console.Clear();
+
+
+                                //Con.open();
+                                //SqlCommand adp = new SqlCommand("UPDATE Ejer SET Fornavn='" + Fornavn + "', Efternavn='" + Efternavn + "', Adresse='" + Adresse + "', Postnr='" + Postnr + "', Tlf='" + Tlf + "', Email='" + Email + "', [Kontrakt-periode]='" + Kontraktperiode + "', where EjerId=" + id + "", Con);
+                                //adp.ExecuteNonQuery();
+                                //Con.close();
+
+                            }
+
+                            
+
+                        } while (true);
+                            break;
+
+                    case "4":
+                        //Con.Open();
+                        //using (SqlCommand command = new SqlCommand("SELECT * FROM Ejer", Con))
+                        //{
+                        //    using (SqlDataReader reader = command.ExecuteReader())
+                        //    {
+                        //        while (reader.Read())
+                        //        {
+                        //            for (int i = 0; i < reader.FieldCount; i++)
+                        //            { //Console.WriteLine(reader.GetValue(i));
+                        //                master.Add(reader.GetValue(i).ToString());
+                        //            }
+                        //            Console.WriteLine();
+
+                        //        }
+
+                        //    }
+
+
+
+                        //}
+
+                        //foreach (var item in master)
+                        //{
+                        //    Console.WriteLine(item);
+                        //}
+
+                        //Con.Close();
+
+                        Console.ReadKey();
+                        break;
+
+                    default:
+                      
+                        break;
+                }
+            } while (true);
+            
+
+
+        }
+    }
+}
