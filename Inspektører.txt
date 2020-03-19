@@ -1,0 +1,230 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+public class Reservationer
+{
+    public void Reservation()
+    {
+        #region variable
+        string number;
+        string esc = "";
+        string SummerhusID = "", KundeID = "", Lejeperiode = "", ReservationsID = "";
+        string InspektørID = "", Fornavn = "", Efternavn = "", Adresse = "", Postnr = "", Tlf = "", Email = "", Løn = "";
+        #endregion
+
+        //SqlConnection Con;
+        //Con = new SqlConnection("Sql data connection string her");
+
+        do
+        {
+            Console.Clear();
+            Console.WriteLine(" ||Inspektør administration||\n \n 1 - Oprette en ny Inspektør.\n ---------------------------------\n 2 - Slette en Inspektør. \n ----------------------------- \n 3 - Rette en Inspektør. \n ----------------------------- \n 4 - Se alle Inspektører \n -----------------------------");
+
+
+            var casenumber = Console.ReadKey();
+
+            if (casenumber.Key == ConsoleKey.Escape)
+            {
+                Environment.Exit(0);
+            }
+
+            number = (casenumber.KeyChar.ToString());
+
+            switch (number)
+            {
+                case "1":
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n ESC for gå tilbage eller N for oprette en ny Inspektør.");
+                        var button = Console.ReadKey();
+
+                        if (button.Key == ConsoleKey.Escape)
+                        {
+                            break;
+                        }
+
+                        if (button.Key == ConsoleKey.N)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Fornavn til ny Inspektør: ");
+                            Fornavn = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Efternavn til ny Inspektør: ");
+                            Efternavn = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Adresse til ny Inspektør: ");
+                            Adresse = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Postnr til ny Inspektør: ");
+                            Postnr = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Tlf til ny Inspektør: ");
+                            Tlf = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Email til ny Inspektør: ");
+                            Email = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Løn til ny Inspektør: ");
+                            Løn = Console.ReadLine();
+                            Console.Clear();
+
+                            /*
+                            Sql Information commands -----------------------------------------------
+                            Con.Open();
+                            SqlCommand cmd = new SqlCommand("insert into Inspektører(Fornavn,Efternavn,Adresse,Postnr,Tlf,Email,Løn)values('" +Fornavn+ "','" +Efternavn+ "','" +Adresse+ "','" +Postnr+ "','" +Tlf+ "','" +Email+ "','" +Løn+ "')", Con);
+                            cmd.ExecuteNonQuery();
+                            Con.Close();
+                           */
+                        }
+
+                    } while (true);
+
+                    break;
+
+                case "2":
+                    do
+                    {
+
+                        Console.Clear();
+                        Console.WriteLine("||Reservation administration: Slette en Inspektør|| \n \n ESC for gå tilbage eller S for Slet en Inspektør.");
+                        var button2 = Console.ReadKey();
+
+                        if (button2.Key == ConsoleKey.Escape)
+                        {
+                            break;
+                        }
+
+
+                        if (button2.Key == ConsoleKey.S)
+                        {
+                            Console.WriteLine("||Inspektør administration: Slette en Inspektør|| \n \n Skriv InspektørID.");
+                            InspektørID = Console.ReadLine();
+                            Console.Clear();
+
+                            /*
+                            Con.Open();
+                            SqlCommand cmd = new SqlCommand("DELETE FROM Inspektører WHERE InspektørID='" + InspektørID + "'", Con);
+                            cmd.ExecuteNonQuery();
+                            Con.Close();
+                            */
+                        }
+                    } while (true);
+
+                    break;
+
+                case "3":
+
+                    do
+                    {
+
+                        Console.Clear();
+                        Console.WriteLine("||Inspektør administration: Rette Inspektør|| \n \n ESC for gå tilbage eller R for ret en Inspektør.");
+                        var button3 = Console.ReadKey();
+
+                        if (button3.Key == ConsoleKey.Escape)
+                        {
+
+                            break;
+
+                        }
+
+                        if (button3.Key == ConsoleKey.R)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("||Inspektør administration: Rette Inspektører|| \n \n Skriv InspektørID af Inspektøren du ville rette.");
+                            ReservationsID = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Fornavn til ny Inspektør: ");
+                            Fornavn = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Efternavn til ny Inspektør: ");
+                            Efternavn = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Adresse til ny Inspektør: ");
+                            Adresse = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Postnr til ny Inspektør: ");
+                            Postnr = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Tlf til ny Inspektør: ");
+                            Tlf = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Email til ny Inspektør: ");
+                            Email = Console.ReadLine();
+                            Console.Clear();
+
+                            Console.WriteLine("||Inspektør administration: ny Inspektør|| \n \n Skriv Løn til ny Inspektør: ");
+                            Løn = Console.ReadLine();
+                            Console.Clear();
+
+                            /*
+                            Con.open();
+                            SqlCommand adp = new SqlCommand("UPDATE Inspektører SET  ReservationsID='" + ReservationsID + "', Fornavn='" + Fornavn + "', Efternavn='" + Efternavn + "', Adresse='" + Adresse + "', Postnr='" + Postnr + "', Tlf='" + Tlf + "', Email='" + Email + "', Løn='" + Løn + "', where InspektørID=" + InspektørID + "", Con);
+                            adp.ExecuteNonQuery();
+                            Con.close();
+                            */
+                        }
+
+
+
+                    } while (true);
+                    break;
+
+                case "4":
+                    /*Con.Open();
+                   using (SqlCommand command = new SqlCommand("SELECT * FROM Inspektører", Con))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                { //Console.WriteLine(reader.GetValue(i));
+                                    master.Add(reader.GetValue(i).ToString());
+                               }
+                               Console.WriteLine();
+
+                          }
+
+                        }
+
+
+
+                    }
+
+                    foreach (var item in master)
+                    {
+                        Console.WriteLine(item);
+                    }
+
+                    Con.Close();
+            */
+                    Console.ReadKey();
+                    break;
+
+                default:
+
+                    break;
+            }
+        } while (true);
+
+
+
+    }
+}
