@@ -137,7 +137,8 @@ ReservationsID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 SummerhusID INT NOT NULL FOREIGN KEY (SummerhusID) REFERENCES Sommerhuse(SummerhusID),
 KundeID INT NOT NULL FOREIGN KEY (KundeID) REFERENCES Kunde(KundeID),
 Lejeperiode varchar(60) NOT NULL,
-Sæson varchar(10) NOT NULL
+Sæson varchar(10) NOT NULL,
+Pris int NOT NULL
 )
 GO
 
