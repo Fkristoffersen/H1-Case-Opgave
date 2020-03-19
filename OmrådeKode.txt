@@ -1,0 +1,230 @@
+using System;
+//using System.Data.SqlClient;
+
+namespace H1projekt
+{
+    public class Område
+    {
+        public void områder()
+        {
+            #region Variables
+
+            string ButtonToString = "";
+
+            string region = "Sydjylland";
+
+
+            //SqlConnection Con;
+
+            //Con = new SqlConnection("Sql data connection string her");
+
+            #endregion
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("|Område administration| \n valg en område \n 1 - Sydjylland \n 2 - Sjælland \n Eller esc gå tilbage ");
+                var button = Console.ReadKey();
+
+                if (button.Key == ConsoleKey.Escape)
+                {
+                    break;
+
+
+                }
+
+                ButtonToString = button.KeyChar.ToString();
+
+                switch (ButtonToString)
+                {
+                    case "1":
+
+
+
+
+                        do
+                        {
+                            Console.Clear();
+                            region = "Sydjylland";
+
+                            //Con.Open();
+                            //using (SqlCommand command = new SqlCommand("SELECT * FROM Område WHERE Område='" +region+ "'"; ", Con))
+                            //{
+                            //	using (SqlDataReader reader = command.ExecuteReader())
+                            //	{
+                            //		while (reader.Read())
+                            //		{
+                            //			for (int i = 0; i < reader.FieldCount; i++)
+                            //			{ //Console.WriteLine(reader.GetValue(i));
+                            //				master.Add(reader.GetValue(i).ToString());
+                            //			}
+                            //			Console.WriteLine();
+
+                            //		}
+
+                            //	}
+
+
+
+                            //}
+
+                            //foreach (var item in master)
+                            //{
+                            //	Console.WriteLine(item);
+                            //}
+
+
+
+                            //Console.ReadKey();
+
+
+                            Console.WriteLine("Vil du oprette en ny sommerhus og konsulent i {0}? J / N", region);
+                            button = Console.ReadKey();
+
+                            if (button.Key == ConsoleKey.J)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Skriv sommerhus id");
+                                string read = Console.ReadLine();
+
+                                Console.WriteLine("Skriv  konsulent ID");
+                                string read2 = Console.ReadLine();
+
+                                //Sql Information commands -----------------------------------------------
+                                //Con.Open();
+
+                                //SqlCommand cmd = new SqlCommand("insert into Område(Område,SummerhusID,KonsulentID)values('" +region+ "','" +read+ "','" +read2+"')", Con);
+
+                                //cmd.ExecuteNonQuery();
+
+                                //Con.Close();
+
+                                //-------------------------------------------------------------------------
+
+
+
+                            }
+
+                            if (button.Key == ConsoleKey.N)
+                            {
+
+                                break;
+
+
+                            }
+
+                        } while (true);
+
+                        break;
+
+                    case "2":
+
+
+
+
+                        do
+                        {
+                            Console.Clear();
+                            region = "Sjælland";
+
+                            //Con.Open();
+                            //using (SqlCommand command = new SqlCommand("SELECT * FROM Område WHERE Område='" +region+ "'"; ", Con))
+                            //{
+                            //	using (SqlDataReader reader = command.ExecuteReader())
+                            //	{
+                            //		while (reader.Read())
+                            //		{
+                            //			for (int i = 0; i < reader.FieldCount; i++)
+                            //			{ //Console.WriteLine(reader.GetValue(i));
+                            //				master.Add(reader.GetValue(i).ToString());
+                            //			}
+                            //			Console.WriteLine();
+
+                            //		}
+
+                            //	}
+
+
+
+                            //}
+
+                            //foreach (var item in master)
+                            //{
+                            //	Console.WriteLine(item);
+                            //}
+
+
+
+                            //Console.ReadKey();
+
+
+                            Console.WriteLine("Vil du oprette en ny sommerhus og konsulent i {0}? J / N", region);
+                            button = Console.ReadKey();
+
+                            if (button.Key == ConsoleKey.J)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Skriv sommerhus id");
+                                string read = Console.ReadLine();
+
+                                Console.WriteLine("Skriv  konsulent ID");
+                                string read2 = Console.ReadLine();
+
+                                //Sql Information commands -----------------------------------------------
+                                //Con.Open();
+
+                                //SqlCommand cmd = new SqlCommand("insert into Område(Område,SummerhusID,KonsulentID)values('" +region+ "','" +read+ "','" +read2+"')", Con);
+
+                                //cmd.ExecuteNonQuery();
+
+                                //Con.Close();
+
+                                //-------------------------------------------------------------------------
+
+
+
+                            }
+
+                            if (button.Key == ConsoleKey.N)
+                            {
+
+                                break;
+
+
+                            }
+
+                        } while (true);
+
+
+
+
+
+                        break;
+
+                    case "3":
+
+
+
+                    break;
+
+                    default:
+                        break;
+                }
+
+
+
+
+            } while (true);
+
+
+
+
+
+
+        }
+
+
+
+
+    }
+}
+
