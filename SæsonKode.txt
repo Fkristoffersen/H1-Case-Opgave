@@ -1,0 +1,258 @@
+using System;
+//using System.Data.SqlClient;
+
+namespace H1projekt
+{
+    public class Sæsoner
+    {
+        public void season()
+        {
+            #region Variable
+            string porcent = "ikke sæt";
+            string porcent2 = "sæt på 20% ned";
+            string porcent3 = "sæt på 20%";
+            string porcent4 = "ikke sæt";
+            #endregion
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("|Sæsonkategori administration| \n valg en sæson \n 1 - Forår \n 2 - Sommer \n 3 - Efterår \n 4 - Vinter Sjælland \n \n  Eller esc gå tilbage ");
+
+                var Button = Console.ReadKey();
+
+                if (Button.Key == ConsoleKey.Escape)
+                {
+                    break;
+                }
+
+                string ButtonToString = Button.KeyChar.ToString();
+
+                switch (ButtonToString)
+                {
+                    case "1":
+                        do
+                        {
+                            Console.Clear();
+                            Console.WriteLine("prisstigning er " + porcent);
+                            Console.WriteLine("\n Vil du ændre på prisstigning? J/N");
+                            Button = Console.ReadKey();
+
+                            if (Button.Key == ConsoleKey.N)
+                            {
+
+                                break;
+                            }
+
+                            if (Button.Key == ConsoleKey.J)
+                            {
+                                
+                                    Console.Clear();
+                                    Console.WriteLine("valg prisstigning \n 1 - 10% \n 2 - 20% \n 3 - 30% \n 4 - ikke sæt \n \n eller esc gå tilbage");
+                                    
+                                    Button = Console.ReadKey();
+
+                                    if (Button.Key == ConsoleKey.Escape)
+                                    {
+                                        break;
+                                    }
+
+                                    ButtonToString = Button.KeyChar.ToString();
+                                    switch (ButtonToString)
+                                    {
+                                        case "1":
+                                            porcent = "sæt på 10%";
+                                            
+
+                                            break;
+                                        case "2":
+                                            porcent = "sæt på 20%";
+
+                                            break;
+                                        case "3":
+                                            porcent = "sæt på 30%";
+
+                                            break;
+                                        case "4":
+                                            porcent = "ikke sæt";
+
+                                            break;
+
+                                        default:
+                                            break;
+                                    }
+
+
+                                
+                            }
+                            
+                        } while (true);
+
+
+                        break;
+                    case "2":
+                        do
+                        {
+                            Console.Clear();
+                            Console.WriteLine("prisstigning er "+porcent3);
+
+                            Console.WriteLine("\n Vil du ændre på prisstigning? J/N");
+                            Button = Console.ReadKey();
+
+                            if (Button.Key == ConsoleKey.N)
+                            {
+
+                                break;
+                            }
+
+                            if (Button.Key == ConsoleKey.J)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("valg prisstigning \n 1 - ned med 10% \n 2 - ned med 20% \n 3 - ned med 30% \n 4 - eller ikke");
+
+                                Button = Console.ReadKey();
+                                ButtonToString = Button.KeyChar.ToString();
+                                switch (ButtonToString)
+                                {
+                                    case "1":
+                                        porcent3 = "sæt på 10% ";
+
+
+                                        break;
+                                    case "2":
+                                        porcent3 = "sæt på 20% ";
+
+                                        break;
+                                    case "3":
+                                        porcent3 = "sæt på 30%";
+
+                                        break;
+                                    case "4":
+                                        porcent3 = "ikke sæt";
+
+                                        break;
+
+                                    default:
+                                        break;
+                                }
+
+                                
+
+
+                            }
+                        } while (true);
+                        
+                            break;
+
+                    case "3":
+                        do
+                        {
+                            Console.Clear();
+                            Console.WriteLine("prisstigning er " + porcent4);
+                            Console.WriteLine("\n Vil du ændre på prisstigning? J/N");
+                            Button = Console.ReadKey();
+
+                            if (Button.Key == ConsoleKey.N)
+                            {
+
+                                break;
+                            }
+
+                            if (Button.Key == ConsoleKey.J)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("valg prisstigning \n 1 - 10% \n 2 - 20% \n 3 - 30% \n 4 - eller ikke");
+
+                                Button = Console.ReadKey();
+                                ButtonToString = Button.KeyChar.ToString();
+                                switch (ButtonToString)
+                                {
+                                    case "1":
+                                        porcent4 = "sæt på 10%";
+
+
+                                        break;
+                                    case "2":
+                                        porcent4 = "sæt på 20%";
+
+                                        break;
+                                    case "3":
+                                        porcent4 = "sæt på 30%";
+
+                                        break;
+                                    case "4":
+                                        porcent4 = "ikke sæt";
+
+                                        break;
+
+                                    default:
+                                        break;
+                                }
+
+                               
+                            }
+
+                        }while (true);
+
+
+                        
+                        break;
+                    case "4":
+                        do
+                        {
+                            Console.Clear();
+                            Console.WriteLine("prisstigning er " + porcent2);
+                            Console.WriteLine("\n Vil du ændre på prisstigning? J/N");
+                            Button = Console.ReadKey();
+
+                            if (Button.Key == ConsoleKey.N)
+                            {
+
+                                break;
+                            }
+
+                            if (Button.Key == ConsoleKey.J)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("valg prisstigning \n 1 - ned med 10% \n 2 - ned med 20% \n 3 - ned med 30% \n 4 - eller ikke");
+
+                                Button = Console.ReadKey();
+                                ButtonToString = Button.KeyChar.ToString();
+                                switch (ButtonToString)
+                                {
+                                    case "1":
+                                        porcent2 = "sæt på 10% ned";
+
+
+                                        break;
+                                    case "2":
+                                        porcent2 = "sæt på 20% ned";
+
+                                        break;
+                                    case "3":
+                                        porcent2 = "sæt på 30% ned ";
+
+                                        break;
+                                    case "4":
+                                        porcent2 = "ikke sæt";
+
+                                        break;
+
+                                    default:
+                                        break;
+                                }
+
+                            }
+                        } while (true);
+
+                        break;
+                    default:
+                        break;
+                }
+
+            } while (true);
+
+        }
+
+    }
+}
