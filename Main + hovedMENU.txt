@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+
+namespace Sydvest_Bo
+{
+    class Program
+    {
+        // Menu class som skal kalde en metode til en menuen.
+        class menu
+        {
+            //MainMenu case
+            public void menuen()
+            {
+                //laver en do while loop for at den bliver ved med at køre menuen.
+                do
+                {
+                    // nulstiller consolen, color samt gør cursoren synlig.
+                    Console.Clear();
+                    Console.ResetColor();
+                    Console.CursorVisible = true;
+
+                    //Sætter titlen på consolen + spørg brugeren om en handling(venter på brugerinput).
+                    Console.Title = "Sydvest-Bo A/S";
+                    Console.WriteLine("Indtast det tal udfra den handling du ønsker udført.");
+                    Console.WriteLine("1. Opret, Rediger eller slet en sommerhusejer");
+                    Console.WriteLine("2. Opret, Rediger eller slet et sommerhus");
+                    Console.WriteLine("3. Opret, Rediger eller slet en Reservation af sommerhus");
+
+                    Console.SetCursorPosition(0, 5);
+                    Console.WriteLine("Tryk 'Escape' for at komme tilbage til menuen");
+                    Console.SetCursorPosition(0, 7);
+                    Console.Write("Input: ");
+
+                    //tjekker om escepe bliver trykket, hvis ja, lukker programmet.
+
+                    var exit = Console.ReadKey();
+                    if (exit.Key == ConsoleKey.Escape)
+                    {
+                        Environment.Exit(0);
+                    }
+                    // laver key nummeret om ting en string som retunerer det man har indtastet samt laver key charaktere om til string.
+                    string MenuSvar = exit.KeyChar.ToString();
+
+                    switch (MenuSvar)
+                    {
+                        case "1":
+                            Console.Clear();
+                            Console.Write("Venter på luans kode. 1.");
+                            Console.ReadKey();
+
+                            break;
+
+                        case "2":
+                            Console.Clear();
+                            Console.Write("Venter på luans kode. 2.");
+                            sommerhus sommerhusCasen = new sommerhus();
+                            sommerhusCasen.sommerhusCase();
+                            Console.ReadKey();
+                            break;
+
+                        case "3":
+                            Console.Clear();
+                            Console.Write("Venter på Frederiks kode. 3.");
+                            Console.ReadKey();
+                            break;
+
+                        default:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Clear();
+                            Console.SetCursorPosition(37, 12);
+                            Console.CursorVisible = false;
+                            Console.WriteLine("Du skal vælge en af de fremviste valgmuligheder!");
+                            Console.ReadKey();
+                            break;
+                    }
+                } while (true);
+            }
+        }
+        static void Main(string[] args)
+        {
+            
+            SqlConnection con; // her opretter vi en sql forbindelse til databsen.
+            con = new SqlConnection("Connection string her!"); // vi fortæller hvor den er(connectionString),
+            con.Open(); // Åbner forbindelsen.
+
+            menu Mainmenu = new menu();  // kalder vores menu klasse og "instansiere" den 
+            Mainmenu.menuen();  // kalder vores menu metode inde i vores menu klasse
+
+            sommerhus sommerhusMenu = new sommerhus(); // kalder sommerhus klassen og instansiere den
+            sommerhusMenu.sommerhusCase(); // kalder vores osmmerhus metode (sommerhusCase)
+
+            Console.ReadKey();
+        }
+    }
+}
