@@ -16,13 +16,12 @@ public class Reservationer
         #endregion
 
         //SqlConnection Con;
-
         //Con = new SqlConnection("Sql data connection string her");
 
         do
         {
             Console.Clear();
-            Console.WriteLine(" ||Reservation administration||\n \n 1 - Oprette en ny Reservation.\n ---------------------------------\n 2 - slette en Reservation. \n ----------------------------- \n 3 - rette en Reservation. \n ----------------------------- \n 4 - Se alle Reservationer \n -----------------------------");
+            Console.WriteLine(" ||Reservation administration||\n \n 1 - Oprette en ny Reservation.\n ---------------------------------\n 2 - Slette en Reservation. \n ----------------------------- \n 3 - Rette en Reservation. \n ----------------------------- \n 4 - Se alle Reservationer \n -----------------------------");
 
 
             var casenumber = Console.ReadKey();
@@ -55,26 +54,22 @@ public class Reservationer
                             SummerhusID = Console.ReadLine();
                             Console.Clear();
 
-                            Console.WriteLine("||Reservation administration: ny sommerhusejere|| \n \n Skriv Kundeid til Reservation: ");
+                            Console.WriteLine("||Reservation administration: ny Reservation|| \n \n Skriv Kundeid til Reservation: ");
                             KundeID = Console.ReadLine();
                             Console.Clear();
 
-                            Console.WriteLine("||Reservation administration: ny sommerhusejere|| \n \n Skriv Lejeperiode: ");
+                            Console.WriteLine("||Reservation administration: ny Reservation|| \n \n Skriv Lejeperiode: ");
                             Lejeperiode = Console.ReadLine();
                             Console.Clear();
                             
 
-
-                            //Sql Information commands -----------------------------------------------
-                            //Con.Open();
-
-                            //SqlCommand cmd = new SqlCommand("insert into Reservationer(SummerhusID,KundeID,Lejeperiode)values('" +SummerhusID+ "','" +KundeID+ "','" +Lejeperiode+ "')", Con);
-
-                            //cmd.ExecuteNonQuery();
-
-                            //Con.Close();
-
-                            //-------------------------------------------------------------------------
+                            /*
+                            Sql Information commands -----------------------------------------------
+                            Con.Open();
+                            SqlCommand cmd = new SqlCommand("insert into Reservationer(SummerhusID,KundeID,Lejeperiode)values('" +SummerhusID+ "','" +KundeID+ "','" +Lejeperiode+ "')", Con);
+                            cmd.ExecuteNonQuery();
+                            Con.Close();
+                           */
                         }
 
                     } while (true);
@@ -86,7 +81,7 @@ public class Reservationer
                     {
 
                         Console.Clear();
-                        Console.WriteLine("||Reservation administration: slette en Reservation|| \n \n ESC for gå tilbage eller S for Slet en Reservation.");
+                        Console.WriteLine("||Reservation administration: Slette en Reservation|| \n \n ESC for gå tilbage eller S for Slet en Reservation.");
                         var button2 = Console.ReadKey();
 
                         if (button2.Key == ConsoleKey.Escape)
@@ -97,18 +92,16 @@ public class Reservationer
 
                         if (button2.Key == ConsoleKey.S)
                         {
-                            Console.WriteLine("||Reservation administration: slette en Reservation|| \n \n Skriv ReservationsID.");
+                            Console.WriteLine("||Reservation administration: Slette en Reservation|| \n \n Skriv ReservationsID.");
                             ReservationsID = Console.ReadLine();
                             Console.Clear();
 
-                            //Con.Open();
-
-                            //SqlCommand cmd = new SqlCommand("DELETE FROM Reservationer WHERE ReservationsID='" + ReservationsID + "'", Con);
-
-                            //cmd.ExecuteNonQuery();
-
-                            //Con.Close();
-
+                            /*
+                            Con.Open();
+                            SqlCommand cmd = new SqlCommand("DELETE FROM Reservationer WHERE ReservationsID='" + ReservationsID + "'", Con);
+                            cmd.ExecuteNonQuery();
+                            Con.Close();
+                            */
                         }
                     } while (true);
 
@@ -149,12 +142,12 @@ public class Reservationer
                             Lejeperiode = Console.ReadLine();
                             Console.Clear();
 
-
-                            //Con.open();
-                            //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET  SummerhusID='" + SummerhusID + "', KundeID='" + KundeID + "', Lejeperiode='" + Lejeperiode + "', where ReservationsID=" + ReservationsID + "", Con);
-                            //adp.ExecuteNonQuery();
-                            //Con.close();
-
+                            /*
+                            Con.open();
+                            SqlCommand adp = new SqlCommand("UPDATE Reservationer SET  SummerhusID='" + SummerhusID + "', KundeID='" + KundeID + "', Lejeperiode='" + Lejeperiode + "', where ReservationsID=" + ReservationsID + "", Con);
+                            adp.ExecuteNonQuery();
+                            Con.close();
+                            */
                         }
 
 
@@ -163,34 +156,34 @@ public class Reservationer
                     break;
 
                 case "4":
-                    //Con.Open();
-                    //using (SqlCommand command = new SqlCommand("SELECT * FROM Ejer", Con))
-                    //{
-                    //    using (SqlDataReader reader = command.ExecuteReader())
-                    //    {
-                    //        while (reader.Read())
-                    //        {
-                    //            for (int i = 0; i < reader.FieldCount; i++)
-                    //            { //Console.WriteLine(reader.GetValue(i));
-                    //                master.Add(reader.GetValue(i).ToString());
-                    //            }
-                    //            Console.WriteLine();
+                    /*Con.Open();
+                   using (SqlCommand command = new SqlCommand("SELECT * FROM Reservationer", Con))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                { //Console.WriteLine(reader.GetValue(i));
+                                    master.Add(reader.GetValue(i).ToString());
+                               }
+                               Console.WriteLine();
 
-                    //        }
+                          }
 
-                    //    }
+                        }
 
 
 
-                    //}
+                    }
 
-                    //foreach (var item in master)
-                    //{
-                    //    Console.WriteLine(item);
-                    //}
+                    foreach (var item in master)
+                    {
+                        Console.WriteLine(item);
+                    }
 
-                    //Con.Close();
-
+                    Con.Close();
+            */
                     Console.ReadKey();
                     break;
 
