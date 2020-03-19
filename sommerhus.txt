@@ -1,0 +1,386 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+
+namespace Sydvest_Bo
+{
+    //sommerhus klasse
+    class sommerhus
+    {
+        //Sommerhus caseManu
+        public void sommerhusCase()
+        {
+            #region Variabler
+            string Adresse, Lejeperiode;
+            int Postnr, KonsulentID, Pris, EjerID, OpsynsmandID, IDsommerhus;
+            #endregion
+            //opretter en liste kaldet "master" som vi fortæller er en string liste
+            List<string> master = new List<string>();
+            do
+            {
+                Console.Clear();
+                Console.ResetColor();
+                Console.CursorVisible = true;
+
+                Console.Title = "Sydvest-Bo A/S";
+                Console.WriteLine("Indtast det tal udfra den handling du ønsker udført.");
+                Console.WriteLine("1. Oprette et sommerhus");
+                Console.WriteLine("2. Redigere et sommerhus");
+                Console.WriteLine("3. Slette et sommerhus");
+
+
+                Console.SetCursorPosition(0, 5);
+                Console.WriteLine("Tryk 'Escape' for at komme tilbage til menuen");
+                Console.SetCursorPosition(0, 7);
+                Console.Write("Input: ");
+
+
+                // opretter en variabel med console.readkey()
+                var exit = Console.ReadKey();
+                if (exit.Key == ConsoleKey.Escape) // fortæller at hvis knappen escape blir trykker skal den udføre det inde i if sætningen
+                {
+                    Environment.Exit(0);
+                }
+                // laver key nummeret om ting en string som retunerer det man har indtastet samt laver key charaktere om til string.
+                string sommerhusSvar = exit.KeyChar.ToString();
+
+                switch (sommerhusSvar)
+                {
+                    //oprette sommerhus
+                    case "1":
+                        do
+                        {
+                        Console.Clear();
+                        Console.WriteLine("Tryk 'Escape' for at komme tilbage til menuen \nEller tryk 'N' for at fortsætte \n");
+
+
+                            // opretter en variabel med console.readkey()
+                            var OptionKey = Console.ReadKey();
+                            if (OptionKey.Key == ConsoleKey.Escape) // fortæller at hvis knappen escape blir trykker skal den udføre det inde i if sætningen
+                            {
+                                break;
+                            } else if (OptionKey.Key == ConsoleKey.N)
+                            {
+                                 
+                                try
+                                {
+                                    Console.Clear();
+
+                                    Console.WriteLine("Skriv Adresse: ");
+                                    Adresse = Console.ReadLine();
+
+                                    Console.WriteLine("Skriv PostNr: ");
+                                    Postnr = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.WriteLine("Skriv KonsulentID: ");
+                                    KonsulentID = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.WriteLine("Skriv Lejeperiode: ");
+                                    Lejeperiode = Console.ReadLine();
+
+                                    Console.WriteLine("Skriv Pris: ");
+                                    Pris = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.WriteLine("Skriv EjerID: ");
+                                    EjerID = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.WriteLine("Skriv OpsynsmandID: ");
+                                    OpsynsmandID = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("Tryk Enter for at fortsætte - eller en anden knap for at anullere");
+                                    Console.ReadKey();
+                                    Console.ResetColor();
+                                    SqlConnection con; // her opretter vi en sql forbindelse til databsen.
+
+                                    con = new SqlConnection("Connection String her"); // vi fortæller hvor den er(connectionString),
+                                    con.Open(); // Åbner forbindelsen.
+
+                                    //SQL Command
+                                    SqlCommand adp = new SqlCommand("INSERT INTO Sommerhuse(Adresse, Postnr, KonsulentID, Lejeperiode, Pris, EjerID, OpsynsmandID) VALUES ('" + Adresse + "', '" + Postnr + "', '" + KonsulentID + "', '" + Lejeperiode + "', '" + Pris + "', '" + EjerID + "', '" + OpsynsmandID + "', )", con);
+                                    adp.ExecuteNonQuery();
+                                    con.Close(); // lukker forbindelsen.
+
+                                }
+                                catch (Exception Failure)
+                                {
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.SetCursorPosition(50, 14);
+                                    Console.CursorVisible = false;
+                                    Console.WriteLine("Der skete en fejl");
+                                    Console.ReadKey();
+                                    Console.ResetColor();
+                                    Console.CursorVisible = true;
+                                }
+
+                                
+                            }
+
+                        } while (true); break;
+                        //Redigere sommerhus
+                    case "2":
+                        do
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Tryk 'Escape' for at komme tilbage til menuen \nEller tryk 'N' for at fortsætte \n");
+
+                            // opretter en variabel med console.readkey()
+                            var OptionKey = Console.ReadKey();
+                            if (OptionKey.Key == ConsoleKey.Escape) // fortæller at hvis knappen escape blir trykker skal den udføre det inde i if sætningen
+                            {
+                                break;
+                            }
+                            else if (OptionKey.Key == ConsoleKey.N)
+                            {
+                                 
+                                try
+                                {
+                                    
+                                    Console.Clear();
+                                    
+                                    SqlConnection con; // her opretter vi en sql forbindelse til databsen.
+                                    con = new SqlConnection("Connection String her"); // vi fortæller hvor den er(connectionString),
+
+                                    con.Open();
+                                    using (SqlCommand command = new SqlCommand("SELECT * FROM Sommerhuse", con))
+                                    {
+                                        using (SqlDataReader reader = command.ExecuteReader())
+                                        {
+                                            while (reader.Read())
+                                            {
+                                                for (int i = 0; i < reader.FieldCount; i++)
+                                                { 
+                                                    master.Add(reader.GetValue(i).ToString());
+                                                }
+                                                Console.WriteLine();
+                                            }
+                                        }
+                                    }
+
+                                    foreach (var item in master)
+                                    {
+                                        Console.WriteLine(item);
+                                    }
+
+                                    con.Close();
+
+                                    Console.ReadKey();
+                                    
+                                    // Bruger skal vælge sommerhus ID for at redigere det sommerhus oplysninger.
+                                    Console.Clear();
+                                    Console.Write("Vælg ID på sommerhuset du vil redigere: ");
+                                    IDsommerhus = Convert.ToInt32(Console.ReadLine());
+
+                                    //hvis listen master indeholder IDsommerhus, vil den lave en ny liste kaldet "names".
+                                    if (master.Contains(IDsommerhus.ToString()) == true)
+                                    {
+                                        List<string> names = new List<string>(); // names "tilføjer" oplysninger om sommerhus til udskrivning
+                                        
+                                        //Tilføjer disse til listen
+                                        names.Add("SommerhusID: ");
+                                        names.Add("Adresse: ");
+                                        names.Add("Postnr: ");
+                                        names.Add("KonsulentID: ");
+                                        names.Add("Lejeperiode: ");
+                                        names.Add("Pris: ");
+                                        names.Add("EjerID: ");
+                                        names.Add("OpsynsmandID: ");
+                                        
+                                        
+                                        int i = 0;
+                                        // ændre dette
+                                        List<string> range = master.GetRange(0, 7);
+                                        
+                                        foreach (var item in range)
+                                        {
+                                            Console.WriteLine(names[i] + item);
+                                            i++;
+                                        }
+                                        Console.ReadKey();
+                                    }
+                                    
+                                    
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.WriteLine("husID: " + IDsommerhus);
+
+                                    Console.ResetColor();
+
+                                    Console.WriteLine("Skriv Adresse: ");
+                                    Adresse = Console.ReadLine();
+
+                                    Console.WriteLine("Skriv PostNr: ");
+                                    Postnr = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.WriteLine("Skriv KonsulentID: ");
+                                    KonsulentID = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.WriteLine("Skriv Lejeperiode: ");
+                                    Lejeperiode = Console.ReadLine();
+
+                                    Console.WriteLine("Skriv Pris: ");
+                                    Pris = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.WriteLine("Skriv EjerID: ");
+                                    EjerID = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.WriteLine("Skriv OpsynsmandID: ");
+                                    OpsynsmandID = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("Tryk Enter for at fortsætte");
+                                    Console.ReadKey();
+                                    Console.ResetColor();
+                                    
+                                    con = new SqlConnection("Connection String her"); // vi fortæller hvor den er(connectionString),
+                                    con.Open(); // Åbner forbindelsen.
+                                    
+                                    //SQL Command --> UPDATE punkter.
+                                    SqlCommand adp = new SqlCommand("UPDATE Sommerhuse SET Adresse = '" + Adresse + "', Postnr = '" + Postnr + "', KonsulentID = '" + KonsulentID + "', Lejeperiode = '" + Lejeperiode + "', Pris = '" + Pris + "', EjerID = '" + EjerID + "', OpsynsmandID = '" + OpsynsmandID + "' WHERE SummerhusID = " + IDsommerhus + "", con);
+                                    adp.ExecuteNonQuery();
+                                    con.Close(); // lukker forbindelsen.
+                                    
+                                }
+                                catch (Exception Failure)
+                                {
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.SetCursorPosition(50, 14);
+                                    Console.CursorVisible = false;
+                                    Console.WriteLine("Der skete en fejl");
+                                    Console.ReadKey();
+                                    Console.ResetColor();
+                                    Console.CursorVisible = true;
+                                }
+
+                                
+                            }
+
+                        } while (true); break;
+                        //Slette sommerhus
+                    case "3":
+                        do
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Tryk 'Escape' for at komme tilbage til menuen \nEller tryk 'N' for at fortsætte \n");
+
+                            // opretter en variabel med console.readkey()
+                            var OptionKey = Console.ReadKey();
+                            if (OptionKey.Key == ConsoleKey.Escape) // fortæller at hvis knappen escape blir trykker skal den udføre det inde i if sætningen
+                            {
+                                break;
+                            }
+                            else if (OptionKey.Key == ConsoleKey.N)
+                            {
+
+                                try
+                                {
+
+                                    Console.Clear();
+                                    
+                                    SqlConnection con; // her opretter vi en sql forbindelse til databsen.
+                                    con = new SqlConnection("Connection String her"); // vi fortæller hvor den er(connectionString),
+
+                                    con.Open();
+                                    using (SqlCommand command = new SqlCommand("SELECT * FROM Sommerhuse", con))
+                                    {
+                                        using (SqlDataReader reader = command.ExecuteReader())
+                                        {
+                                            while (reader.Read())
+                                            {
+                                                for (int i = 0; i < reader.FieldCount; i++)
+                                                {
+                                                    master.Add(reader.GetValue(i).ToString());
+                                                }
+                                                Console.WriteLine();
+                                            }
+                                        }
+                                    }
+
+                                    foreach (var item in master)
+                                    {
+                                        Console.WriteLine(item);
+                                    }
+
+                                    con.Close();
+                                    
+                                    Console.ReadKey();
+                                    
+                                    // Bruger skal vælge sommerhus ID for at Slette det sommerhus.
+                                    Console.Clear();
+                                    Console.Write("Vælg ID på sommerhuset du vil slette: ");
+                                    IDsommerhus = Convert.ToInt32(Console.ReadLine());
+
+                                    Console.Clear();
+                                    Console.WriteLine("du har valgt sommerhuset med ID'et " + IDsommerhus + " til at blive slettet, er du sikker på dette?");
+                                    Console.WriteLine("Skriv ja eller nej");
+                                    string sikkerValg = Console.ReadLine();
+                                    if(sikkerValg == "ja")
+                                    {
+                                        
+                                        con = new SqlConnection("Connection String her"); // vi fortæller hvor den er(connectionString),
+                                        con.Open(); // Åbner forbindelsen.
+
+                                        //SQL Command --> Delete.
+                                        SqlCommand adp = new SqlCommand("DELETE FROM Sommerhuse WHERE SummerhusID = '" + IDsommerhus + "", con);
+                                        adp.ExecuteNonQuery();
+                                        con.Close(); // lukker forbindelsen.
+                                        
+                                    }else if(sikkerValg == "nej")
+                                    {
+                                        break;
+                                    }
+                                    else if(sikkerValg != "ja" && sikkerValg != "nej")
+                                    {
+                                        Console.Clear();
+                                        Console.CursorVisible = false;
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.SetCursorPosition(50, 14);
+                                        Console.WriteLine("brugerinput fejl.");
+                                        Console.SetCursorPosition(44, 16);
+                                        Console.WriteLine("Tryk en tast for at fortsætte");
+                                        Console.ReadKey();
+                                        Console.ResetColor();
+                                        Console.CursorVisible = true;
+                                        break;
+                                    }
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.Clear();
+                                    Console.WriteLine("Tryk Enter for at fortsætte");
+                                    Console.ReadKey();
+                                    Console.ResetColor();
+                                }
+                                catch (Exception Failure)
+                                {
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.SetCursorPosition(50, 14);
+                                    Console.CursorVisible = false;
+                                    Console.WriteLine("Der skete en fejl");
+                                    Console.ReadKey();
+                                    Console.ResetColor();
+                                    Console.CursorVisible = true;
+                                }
+                            }
+
+                        } while (true); break;
+
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Clear();
+                        Console.SetCursorPosition(37, 12);
+                        Console.CursorVisible = false;
+                        Console.WriteLine("Du skal vælge en af de fremviste valgmuligheder!");
+                        Console.ReadKey();
+                        break;
+                }
+            } while (true);
+            { }
+        }
+            
+    }
+}
