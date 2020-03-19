@@ -11,7 +11,7 @@ public class Reservationer
         #region variable
         string number;
         string esc = "";       
-        string SummerhusID = "", KundeID = "", Lejeperiode = "", ReservationsID = "";
+        string SummerhusID = "", KundeID = "", Lejeperiode = "", ReservationsID = "", Sæson="";
 
         #endregion
 
@@ -61,12 +61,15 @@ public class Reservationer
                             Console.WriteLine("||Reservation administration: ny Reservation|| \n \n Skriv Lejeperiode: ");
                             Lejeperiode = Console.ReadLine();
                             Console.Clear();
-                            
+
+                            Console.WriteLine("||Reservation administration: ny Reservation|| \n \n Skriv Sæson: ");
+                            Sæson = Console.ReadLine();
+                            Console.Clear();
 
                             /*
                             Sql Information commands -----------------------------------------------
                             Con.Open();
-                            SqlCommand cmd = new SqlCommand("insert into Reservationer(SummerhusID,KundeID,Lejeperiode)values('" +SummerhusID+ "','" +KundeID+ "','" +Lejeperiode+ "')", Con);
+                            SqlCommand cmd = new SqlCommand("insert into Reservationer(SummerhusID,KundeID,Lejeperiode,Sæson)values('" +SummerhusID+ "','" +KundeID+ "','" +Lejeperiode+ "','" +Sæson+ "')", Con);
                             cmd.ExecuteNonQuery();
                             Con.Close();
                            */
@@ -142,9 +145,13 @@ public class Reservationer
                             Lejeperiode = Console.ReadLine();
                             Console.Clear();
 
+                            Console.WriteLine("||Reservation administration: ny Reservation|| \n \n Skriv Sæson: ");
+                            Sæson = Console.ReadLine();
+                            Console.Clear();
+
                             /*
                             Con.open();
-                            SqlCommand adp = new SqlCommand("UPDATE Reservationer SET  SummerhusID='" + SummerhusID + "', KundeID='" + KundeID + "', Lejeperiode='" + Lejeperiode + "', where ReservationsID=" + ReservationsID + "", Con);
+                            SqlCommand adp = new SqlCommand("UPDATE Reservationer SET  SummerhusID='" + SummerhusID + "', KundeID='" + KundeID + "', Lejeperiode='" + Lejeperiode + "', Sæson='" + Sæson + "', where ReservationsID=" + ReservationsID + "", Con);
                             adp.ExecuteNonQuery();
                             Con.close();
                             */
