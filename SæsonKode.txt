@@ -12,12 +12,17 @@ namespace H1projekt
             string porcent2 = "sæt på 20% ned";
             string porcent3 = "sæt på 20%";
             string porcent4 = "ikke sæt";
+            string Sommer = "Sommer";
+            string Forår = "Forår";
+            string Efterår = "Efterår";
+            string Vinter = "Vinter";
+
             #endregion
 
             do
             {
                 Console.Clear();
-                Console.WriteLine("|Sæsonkategori administration| \n valg en sæson \n 1 - Forår \n 2 - Sommer \n 3 - Efterår \n 4 - Vinter Sjælland \n \n  Eller esc gå tilbage ");
+                Console.WriteLine("|Sæsonkategori administration| \n valg en sæson \n 1 - Forår \n 2 - Sommer \n 3 - Efterår \n 4 - Vinter  \n \n  Eller esc gå tilbage ");
 
                 var Button = Console.ReadKey();
 
@@ -62,21 +67,41 @@ namespace H1projekt
                                     {
                                         case "1":
                                             porcent = "sæt på 10%";
-                                            
 
-                                            break;
+                                        
+
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.10 WHERE Sæson=" +Forår+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
+
+                                        break;
                                         case "2":
                                             porcent = "sæt på 20%";
 
-                                            break;
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.20 WHERE Sæson=" +Forår+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
+
+                                        break;
                                         case "3":
                                             porcent = "sæt på 30%";
 
-                                            break;
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.30 WHERE Sæson=" +Forår+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
+
+                                        break;
                                         case "4":
                                             porcent = "ikke sæt";
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris WHERE Sæson=" +Forår+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
 
-                                            break;
+                                        break;
 
                                         default:
                                             break;
@@ -116,21 +141,44 @@ namespace H1projekt
                                 {
                                     case "1":
                                         porcent3 = "sæt på 10% ";
+                                        
+                                        //update theTable set age = age * 2 where 1 = 1
 
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.10 WHERE Sæson=" +Sommer+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
 
                                         break;
                                     case "2":
                                         porcent3 = "sæt på 20% ";
+                                        
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.20 WHERE Sæson=" +Sommer+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
 
                                         break;
                                     case "3":
                                         porcent3 = "sæt på 30%";
 
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.30 WHERE Sæson=" +Sommer+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
+
+
                                         break;
                                     case "4":
                                         porcent3 = "ikke sæt";
 
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris  WHERE Sæson=" +Sommer+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
+
                                         break;
+
 
                                     default:
                                         break;
@@ -170,18 +218,35 @@ namespace H1projekt
                                     case "1":
                                         porcent4 = "sæt på 10%";
 
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.10 WHERE Sæson=" +Efterår+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
+
 
                                         break;
                                     case "2":
                                         porcent4 = "sæt på 20%";
 
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.20 WHERE Sæson=" +Efterår+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
                                         break;
                                     case "3":
                                         porcent4 = "sæt på 30%";
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.30 WHERE Sæson=" +Efterår+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
 
                                         break;
                                     case "4":
                                         porcent4 = "ikke sæt";
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris WHERE Sæson=" +Efterår+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
 
                                         break;
 
@@ -223,18 +288,38 @@ namespace H1projekt
                                     case "1":
                                         porcent2 = "sæt på 10% ned";
 
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.10 WHERE Sæson=" +Vinter+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
+
 
                                         break;
                                     case "2":
                                         porcent2 = "sæt på 20% ned";
 
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.20 WHERE Sæson=" +Vinter+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
+
                                         break;
                                     case "3":
                                         porcent2 = "sæt på 30% ned ";
 
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris * 0.30 WHERE Sæson=" +Vinter+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
+
                                         break;
                                     case "4":
                                         porcent2 = "ikke sæt";
+
+                                        //Con.open();
+                                        //SqlCommand adp = new SqlCommand("UPDATE Reservationer SET Pris= Pris  WHERE Sæson=" +Vinter+ "", Con);
+                                        //adp.ExecuteNonQuery();
+                                        //Con.close();
 
                                         break;
 
